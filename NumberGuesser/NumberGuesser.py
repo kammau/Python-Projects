@@ -1,59 +1,32 @@
 from random import randint
 
-def checkInput(lowerBound, upperBound):
-    if ((type(lowerBound) & type(upperBound)) != int):
-        print("Please enter valid integers!")
-        return False
-    
-    else:
-        return True
-    
 
-def getRange(targetNum):
-    rangeValid = False
-
-    while (rangeValid == False):
-        print("Enter a lower bound for the range: ")
-        lowerBound = input()
-
-        print("Enter an upper bound for the range: ")
-        upperBound = input()
-            
-        rangeValid = checkInput(lowerBound, upperBound)
-    
-    targetNum = randint(lowerBound, upperBound)
-
-    return targetNum
-
+print("--- Welcome to the Number Guessing Game! ---\n")
+main()
+#rename funcs?
 
 def main():
-    guessed = False
-    numGuesses = 1
-    print("--- Welcome to the number guessing game! ---")
-    targetNum = getRange(targetNum)
+    lowerBound = int(input("Please enter a lower bound: "))
+    upperBound = int(input("Please enter an upper bound: "))
 
-    print("You'll have 5 chances to guess the correct number!")
-    print("\n Ready...")
-    print("Set...")
-    print("Go!\n\n")
+    num = randint(lowerBound, upperBound)
+    guess_num = 0
+    guess = False
+
+    print("You'll have 5 chances to guess the correct number!\n")
+    print("Ready...\nSet...\nGo!\n")
+
+    while ((guess == False) & (guess_num < 5)):
+        guess_num += 1
+        user_guess = input(f"Guess {guess_num}: ")
+
+        if (user_guess == num):
+            print("Congratulations, you've won!")
     
-    while (guessed == False & numGuesses <= 5):
-        print(f"Guess {numGuesses}: ")
-        usersGuess = input()
+    user_response = input("Would you like to play again (y/n)?")
 
-        if (usersGuess == targetNum):
-            print("Correct!")
-            guessed = True
-        
-        elif (usersGuess < targetNum):
-            print("Too low!")
-            numGuesses -= 1
-            continue
-
-        else:
-            print("Too high!")
-            numGuesses -= 1
-            continue
+    if (user_response == "y"):
+        main()
+    else:
+        print("Thanks for playing!")
     
-    print 
-
