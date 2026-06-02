@@ -16,8 +16,6 @@ while (continue_game == "y"):
     guess_num = 0
 
     print("\nYou'll have 5 chances to guess the correct number!\n")
-    #FIXME: Delete later
-    print(f"Correct num: {num}")
     print("Ready...\nSet...\nGo!\n")
 
     while (guess_num <= 5):
