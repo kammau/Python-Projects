@@ -28,7 +28,7 @@ while (continue_game == "y"):
             continue
 
         if (user_guess == num):
-            print("Congratulations, you've won!")
+            print(f"Congratulations, you've won! It only took you {guess_num} try's!")
             break
         
         elif (guess_num >= 5 and user_guess != num):
