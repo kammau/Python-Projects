@@ -19,25 +19,31 @@ from random import randint
 print("--- Welcome to the Number Guessing Game! ---\n")
 continue_game = "y"
 
+# While the user wants to continue game play
 while (continue_game == "y"):
+    # Input validation to ensure lower and upper bound input is an integer
     try:
         lowerBound = int(input("Please enter a lower bound: "))
         upperBound = int(input("Please enter an upper bound: "))
         num = randint(lowerBound, upperBound)
+    # Handle invalid user input
     except ValueError:
         print("\n***That is not a valid number!***\n")
         continue
-
-    guess_num = 0
+    
+    # Holds the current guess the user is on
+    guess_num = 1
 
     print("\nYou'll have 5 chances to guess the correct number!\n")
     print("Ready...\nSet...\nGo!\n")
 
+    # While the user has not guessed the correct number and the number of guesses has not exceeded 5
     while (guess_num <= 5):
-        guess_num += 1
 
+        # Input validation to ensure user's guess input is a valid integer
         try:
             user_guess = int(input(f"Guess {guess_num}: "))
+        # Handle invalid user input
         except ValueError:
             print("\n***That is not a valid number!***\n")
             continue
@@ -55,6 +61,9 @@ while (continue_game == "y"):
         
         elif (user_guess < num):
             print("Too low! Try a higher number!")
+        
+        # Increment the guess counter
+        guess_num += 1
         
     user_response = input("\nWould you like to play again (y/n)? ")
 
