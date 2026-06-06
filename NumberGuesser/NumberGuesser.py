@@ -1,3 +1,18 @@
+""" Author: Kamryn Smith
+    Date Completed:
+    Time Worked On: Unknown
+
+    Program Description: A simple number guessing game that prompts the user to enter a lower bound and 
+        upper bound number, with which (using the random module), the program will randomly select a number 
+        within that range (inclusive of both lower and upper bounds). The user will be given 5 chances to 
+        guess said number, with hints being returned to the user during the guessing process based on 
+        whether the user's guess was lower (returning "Too low! Try a higher number!") or higher (returning
+        "Too high! Try a lower number!") than the generated number. If the user guesses the correct number
+        within 5 guesses, they win the game; otherwise, they automatically lose. After each outcome, the game
+        asks the user if they would like to play again. If the player chooses to play again, the process will
+        restart, reprompting for new lower and upper bounds. If the player chooses not to play again, the program terminates.
+"""
+
 # For random number generation between set range
 from random import randint
 
