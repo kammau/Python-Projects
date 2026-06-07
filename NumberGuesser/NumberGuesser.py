@@ -1,5 +1,5 @@
 """ Author: Kamryn Smith
-    Date Completed:
+    Date Completed: Jun 7, 2026
     Time Worked On: Unknown
 
     Program Description: A simple number guessing game that prompts the user to enter a lower bound and 
@@ -47,29 +47,33 @@ while (continue_game == "y"):
         except ValueError:
             print("\n***That is not a valid number!***\n")
             continue
-
+        
+        # User wins
         if (user_guess == num):
             print(f"Congratulations, you've won! It only took you {guess_num} try's!")
             break
-        
+        # User looses
         elif (guess_num >= 5 and user_guess != num):
             print(f"Sorry, you ran out of chances! The number was {num}! Better luck next time...")
             break
-        
+        # Too high
         elif (user_guess > num):
             print("Too high! Try a lower number!")
-        
+        # Too low
         elif (user_guess < num):
             print("Too low! Try a higher number!")
         
         # Increment the guess counter
         guess_num += 1
-        
+
+    # Replay game?    
     user_response = input("\nWould you like to play again (y/n)? ")
 
     if (user_response == "y"):
+        # Restart while loop
         continue
     else:
+        # Exit
         print("Thanks for playing!")
         continue_game = "n"
         break
