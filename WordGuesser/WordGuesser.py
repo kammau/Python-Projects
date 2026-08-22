@@ -15,8 +15,6 @@ guessed_letters = ["_" for char in target_word]
 player_name = input("What is your name player? ")
 print(f"Welcome {player_name}! You will have 10 trys to guess the word good luck!\n")
 
-i = 0
-
 print(target_word)
 for letter in guessed_letters:
     print(letter, end=" ")
@@ -25,7 +23,14 @@ for letter in guessed_letters:
 user_input = input("\n\nGuess a letter: ").lower()
 
 if (user_input in target_word):
-    print("Yes")
+    i = 0
+    for letter in target_word:
+        if user_input == target_word[i]:
+            guessed_letters[i] = user_input
+
+        i += 1
 
 else:
     print ("\n Wrong! \n")
+
+print(guessed_letters)
