@@ -11,16 +11,18 @@ import random
 words = ["Pencil", "Ocean", "Guitar", "Cloud", "Window", "Apple", "Tiger", "House", "River", "Book"]
 target_word = list(random.choice(words).lower())
 guessed_letters = ["_" for char in target_word]
-attempts = 0
+wrong_attempts = 10
 
 player_name = input("What is your name player? ")
 print(f"Welcome {player_name}! You will have 10 trys to guess the word good luck!\n")
 
-while ((attempts < 10) or (guessed_letters == target_word)):
-    print(target_word)
+while (wrong_attempts > 0):
+
+    if (guessed_letters == target_word):
+        break
+
     for letter in guessed_letters:
         print(letter, end=" ")
-
 
     user_input = input("\n\nGuess a letter: ").lower()
 
@@ -32,14 +34,19 @@ while ((attempts < 10) or (guessed_letters == target_word)):
 
             i += 1
 
+    elif (user_input in guessed_letters):
+        print ("You already guessed that letter!")
+
     else:
-        print ("\n Wrong! \n")
+        print ("\nWrong! \n")
+        wrong_attempts -= 1
+        print(f"Attempts Remaining: {wrong_attempts}")
 
-    attempts += 1
-
-    print(guessed_letters)
+    #print(guessed_letters)
 
 if (guessed_letters == target_word):
-    print("Congratulations!")
+    print("\nCongratulations!")
 else:
-    print("Better luck next time!")
+    print("\nBetter luck next time!")
+
+print(f"\nThe word was: {"".join(target_word)}")
