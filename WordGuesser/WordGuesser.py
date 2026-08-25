@@ -13,13 +13,13 @@ target_word = list(random.choice(words).lower())
 print("--- Word Guessing Game ---")
 name = input("\nWhat is your name player? ")
 print(f"Welcome {name}, to the Word Guessing Game!")
-print("\nYou will have 10 attempts to guess each character in the word. Good luck!")
+print("\nYou will have 10 attempts to guess each character in the word. Good luck!\n")
 
 attempts = 10
 guessed_chars = ""
 score = 0
 
-while (attempts >= 0):
+while (attempts != 0):
     score = 0
 
     for char in target_word:
@@ -34,6 +34,11 @@ while (attempts >= 0):
         print(f"\nThe word was: {"".join(target_word)}")
         break
 
+    # if (attempts == 0):
+    #     print("\n\nYou loose! Better luck next time...")
+    #     print(f"\nThe word was: {"".join(target_word)}")
+    #     break
+
     users_guess = input("\n\nGuess a character: ")
 
     if (len(users_guess) != 1):
@@ -47,14 +52,12 @@ while (attempts >= 0):
     guessed_chars += users_guess
 
     if (users_guess not in target_word):
+        attempts -= 1
+        
         print("\nWrong!")
         print(f"\nYou have {attempts} more attempts!\n")
 
-        attempts -= 1
 
-        if (attempts == 0):
-            print("\nYou loose! Better luck next time...")
-            print(f"\nThe word was: {"".join(target_word)}")
-            break
-
+print("\n\nYou loose! Better luck next time...")
+print(f"\nThe word was: {"".join(target_word)}")
         
