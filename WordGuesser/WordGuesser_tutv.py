@@ -46,7 +46,7 @@ while turns > 0:
 
     # Validate input length
     if len(guess) != 1:
-        print("Please eneter a single character.")
+        print("Please enter a single character.")
         continue
 
     # Check for duplicate guesses

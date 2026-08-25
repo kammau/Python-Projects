@@ -18,20 +18,37 @@ print("\nYou will have 10 attempts to guess each character in the word. Good luc
 attempts = 10
 guessed_chars = ""
 
-print(target_word)
-for char in target_word:
-    if char in guessed_chars:
-        print(char, end=" ")
-    else:
-        print("_", end=" ")
 
-# while (attempts > 0):
-#     for char in target_word:
-#         if char in guessed_chars:
-#             print(char, end=" ")
-#         else:
-#             print("_", end=" ")
+while (attempts > 0):
+    score = 0
 
+    if (score == len(target_word)):
+        print("\nYou Win!")
+        print(f"\n The word was: {"".join(target_word)}")
+    for char in target_word:
+        if char in guessed_chars:
+            print(char, end=" ")
+            score += 1
+        else:
+            print("_", end=" ")
 
+    users_guess = input("\nGuess a character: ")
+
+    if (len(users_guess) != 1):
+        print("\nPlease enter a valid character!\n")
+        continue
+
+    if (users_guess in guessed_chars):
+        print("\nYou already guessed that character!\n")
+
+    guessed_chars += users_guess
+
+    if (users_guess not in target_word):
+        print("\nWrong!")
+        print(f"\nYou have {attempts} more attempts!")
+
+        if (attempts == 0):
+            print("\nYou loose! Better luck next time...")
+            print(f"\nThe word was: {"".join(target_word)}")
 
         
