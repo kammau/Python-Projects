@@ -32,42 +32,54 @@ while (attempts != 0):
     # Reset score to 0 
     score = 0
 
+    # For each character in the target word
     for char in target_word:
+        # Map each correct user guess to the correct spots in target word
         if char in guessed_chars:
+            # Print the correctly guessed character in output
             print(char, end=" ")
+            # Increment score
             score += 1
+        # Else if the user's guess is not in the target word
         else:
+            # Output a blank underscore for that target letter
             print("_", end=" ")
 
+    # If the user guesses each character in target word
     if (score == len(target_word)):
+        # Output winning message and target word
         print("\n\nYou Win!")
         print(f"\nThe word was: {"".join(target_word)}")
         break
 
-    # if (attempts == 0):
-    #     print("\n\nYou loose! Better luck next time...")
-    #     print(f"\nThe word was: {"".join(target_word)}")
-    #     break
-
+    # Get user's guess
     users_guess = input("\n\nGuess a character: ").lower()
 
+    # If user's guess is not a valid character
     if (len(users_guess) != 1):
         print("\nPlease enter a valid character!\n")
         continue
 
+    # If user's guess has already been guessed
     if (users_guess in guessed_chars):
         print("\nYou already guessed that character!\n")
         continue
 
+    # Add user's input into the guessed characters list
     guessed_chars += users_guess
 
+    # If the user's guess is not in the target word
     if (users_guess not in target_word):
+        # Decrement attempts counter
         attempts -= 1
 
+        # Output incorrect guess message
         print("\nWrong!")
         print(f"\nYou have {attempts} more attempts!\n")
 
+        # If the user runs out of guessing attempts
         if (attempts == 0):
+            # Output loosing message and correct full word
             print("\n\nYou loose! Better luck next time...")
             print(f"\nThe word was: {"".join(target_word)}")
         
