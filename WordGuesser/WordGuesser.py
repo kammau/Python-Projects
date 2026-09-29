@@ -1,7 +1,9 @@
 """ Author: Kamryn Smith
-    Date Completed: 
+    Date Completed: 9/28/26
 
-    Program Description: 
+    Program Description: A word-guessing game where the program selects a random word from
+    a word list, and the user has 10 attempts to guess the correct characters within the target word
+    before the attempts run out.
 """
 
 # Module to give the program a method to select a random word from words list
